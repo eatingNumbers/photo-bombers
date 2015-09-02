@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PhotosViewController.h
 //  Photo Bombers
 //
 //  Created by Dean Laurea on 9/2/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface PhotosViewController : UICollectionViewController
 
 @end
-
