@@ -10,4 +10,6 @@
 
 @interface PhotoCell : UICollectionViewCell
 
+@property (nonatomic) UIImageView *imageView;
+
 @end
