@@ -12,6 +12,8 @@
 
 @interface PhotosViewController ()
 
+@property (nonatomic) NSString *accessToken;
+
 @end
 
 @implementation PhotosViewController
@@ -36,10 +38,31 @@
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"photo"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
-    [SimpleAuth authorize:@"instagram" completion:^(id responseObject, NSError *error) {
-        NSLog(@"response: %@", responseObject);
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.accessToken = [userDefaults objectForKey:@"accessToken"];
+    
+    if (self.accessToken == nil) {
+    
+        [SimpleAuth authorize:@"instagram" completion:^(NSDictionary *responseObject, NSError *error) {
+            NSString *accessToken = responseObject[@"credentials"][@"token"];
+            [userDefaults setObject:accessToken forKey:@"accessToken"];
+            [userDefaults synchronize];
+        
     }];
-   
+    
+    } else {
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/photobomb/media/recent?access_token=%@", self.accessToken];
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+        NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+            NSString *text = [[NSString alloc] initWithContentsOfURL:location encoding:NSUTF8StringEncoding error:nil];
+            NSLog(@"response: %@", text);
+        }];
+
+        [task resume];
+    }
+
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
