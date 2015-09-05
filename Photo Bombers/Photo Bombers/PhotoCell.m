@@ -7,12 +7,13 @@
 //
 
 #import "PhotoCell.h"
+#import <SAMCache/SAMCache.h>
 
 @implementation PhotoCell
 
 -(void)setPhoto:(NSDictionary *)photo {
     _photo = photo;
-    NSURL *url = [[NSURL alloc] initWithString:_photo[@"images"][@"standard_resolution"][@"url"]];
+    NSURL *url = [[NSURL alloc] initWithString:_photo[@"images"][@"thumbnail"][@"url"]];
     [self downloadPhotoWithURL:url];
     
 }
@@ -31,12 +32,19 @@
 }
 
 - (void)downloadPhotoWithURL:(NSURL *)url {
+    
+    NSString *key = [[NSString alloc] initWithFormat:@"%@-thumbnail", self.photo[@"id"]];
+    UIImage *photo = [[SAMCache sharedCache] imageForKey:key];
+    if (photo) {
+        self.imageView.image = photo;
+        return;
+    }
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         NSData *data = [[NSData alloc] initWithContentsOfURL:location];
         UIImage *image = [[UIImage alloc] initWithData:data];
-        
+        [[SAMCache sharedCache] setImage:image forKey:key];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = image;
         });
