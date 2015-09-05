@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PhotosViewController.h"
+#import <SimpleAuth.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    SimpleAuth.configuration[@"instagram"] = @{
+       @"client_id" : @"1b5cef31c4064d35b468a4c5fa541055",
+       SimpleAuthRedirectURIKey : @"photobombers://auth/instagram"
+    };
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     PhotosViewController *photosViewController = [[PhotosViewController alloc] init];

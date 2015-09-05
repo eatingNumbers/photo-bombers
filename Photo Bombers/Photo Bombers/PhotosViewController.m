@@ -8,6 +8,7 @@
 
 #import "PhotosViewController.h"
 #import "PhotoCell.h"
+#import <SimpleAuth.h>
 
 @interface PhotosViewController ()
 
