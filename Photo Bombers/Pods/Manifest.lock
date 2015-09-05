@@ -15,10 +15,12 @@ PODS:
     - ReactiveCocoa
   - SimpleAuth/Instagram (0.3.9):
     - SimpleAuth/Core
+  - SSKeychain (1.2.3)
 
 DEPENDENCIES:
   - SAMCache
   - SimpleAuth/Instagram
+  - SSKeychain
 
 SPEC CHECKSUMS:
   CMDQueryStringSerialization: 4bb0a2f5e7d8d8678d911d88072274952cbef4e5
@@ -26,5 +28,6 @@ SPEC CHECKSUMS:
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SAMCache: 418d532c4ecab283e7758576856aeab461a69dde
   SimpleAuth: bc7d594f90711a7e6ef7624dce5aa8c8b09770ab
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
 
 COCOAPODS: 0.37.2
