@@ -27,7 +27,6 @@
     
     return (self =[super initWithCollectionViewLayout:layout]);
     //Note that this is the same as (self =[super initWithCollectionViewLayout:layout]);
-    //then
     //return self;
 }
 
