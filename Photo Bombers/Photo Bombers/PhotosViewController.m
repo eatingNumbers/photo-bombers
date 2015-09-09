@@ -9,6 +9,7 @@
 #import "PhotosViewController.h"
 #import "PhotoCell.h"
 #import <SimpleAuth.h>
+#import "DetailViewController.h"
 
 @interface PhotosViewController ()
 
@@ -44,11 +45,11 @@
     
     if (self.accessToken == nil) {
     
-        [SimpleAuth authorize:@"instagram" completion:^(NSDictionary *responseObject, NSError *error) {
-            NSString *accessToken = responseObject[@"credentials"][@"token"];
-            [userDefaults setObject:accessToken forKey:@"accessToken"];
+        [SimpleAuth authorize:@"instagram" options:@{@"scope":@[@"Likes"]} completion:^(NSDictionary *responseObject, NSError *error) {
+             self.accessToken = responseObject[@"credentials"][@"token"];
+            [userDefaults setObject:self.accessToken forKey:@"accessToken"];
             [userDefaults synchronize];
-        
+            [self refresh];
     }];
     
     } else {
@@ -87,6 +88,13 @@
     cell.backgroundColor = [UIColor lightGrayColor];
     cell.photo = self.photos[indexPath.row];
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *photo = self.photos[indexPath.row];
+    DetailViewController *viewController = [[DetailViewController alloc] init];
+    viewController.photo = photo;
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end
