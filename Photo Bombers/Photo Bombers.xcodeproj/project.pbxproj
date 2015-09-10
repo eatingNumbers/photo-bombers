@@ -15,6 +15,8 @@
 		3CBC5CFB1B97C550009A560F /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC5CFA1B97C550009A560F /* PhotoCell.m */; };
 		3CE0A98F1BA02899007A788C /* PhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0A98E1BA02899007A788C /* PhotoController.m */; };
 		3CE0A9921BA02CCC007A788C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0A9911BA02CCC007A788C /* DetailViewController.m */; };
+		3CE0A9951BA10E72007A788C /* PresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0A9941BA10E72007A788C /* PresentDetailTransition.m */; };
+		3CE0A9981BA1144A007A788C /* DismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0A9971BA1144A007A788C /* DismissDetailTransition.m */; };
 		8FF61DC05433A1E44AB6CD70 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7154B91CAC0C50C919B0523 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,10 @@
 		3CE0A98E1BA02899007A788C /* PhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoController.m; sourceTree = "<group>"; };
 		3CE0A9901BA02CCC007A788C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3CE0A9911BA02CCC007A788C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		3CE0A9931BA10E72007A788C /* PresentDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentDetailTransition.h; sourceTree = "<group>"; };
+		3CE0A9941BA10E72007A788C /* PresentDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentDetailTransition.m; sourceTree = "<group>"; };
+		3CE0A9961BA1144A007A788C /* DismissDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissDetailTransition.h; sourceTree = "<group>"; };
+		3CE0A9971BA1144A007A788C /* DismissDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissDetailTransition.m; sourceTree = "<group>"; };
 		CACA060B4219304CEE4E57F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EF936EA08006349D868194BC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F7154B91CAC0C50C919B0523 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +111,10 @@
 				3CBC5CF71B97AEFF009A560F /* PhotosViewController.m */,
 				3CBC5CF91B97C550009A560F /* PhotoCell.h */,
 				3CBC5CFA1B97C550009A560F /* PhotoCell.m */,
+				3CE0A9931BA10E72007A788C /* PresentDetailTransition.h */,
+				3CE0A9941BA10E72007A788C /* PresentDetailTransition.m */,
+				3CE0A9961BA1144A007A788C /* DismissDetailTransition.h */,
+				3CE0A9971BA1144A007A788C /* DismissDetailTransition.m */,
 				3CBC5CDA1B979EC2009A560F /* Images.xcassets */,
 				3CBC5CCD1B979EC2009A560F /* Supporting Files */,
 			);
@@ -291,7 +301,9 @@
 				3CBC5CF81B97AEFF009A560F /* PhotosViewController.m in Sources */,
 				3CBC5CD31B979EC2009A560F /* AppDelegate.m in Sources */,
 				3CBC5CD01B979EC2009A560F /* main.m in Sources */,
+				3CE0A9951BA10E72007A788C /* PresentDetailTransition.m in Sources */,
 				3CE0A98F1BA02899007A788C /* PhotoController.m in Sources */,
+				3CE0A9981BA1144A007A788C /* DismissDetailTransition.m in Sources */,
 				3CE0A9921BA02CCC007A788C /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

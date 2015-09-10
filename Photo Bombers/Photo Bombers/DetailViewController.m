@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
     [self.view addSubview:self.imageView];
